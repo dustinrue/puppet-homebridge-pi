@@ -35,7 +35,7 @@
 #
 # Copyright 2016 Your name here, unless otherwise noted.
 #
-class homebridge-pi {
+class homebridgepi {
   class { 'nodejs':
     repo_url_suffix => '6.x',
   }
@@ -63,17 +63,17 @@ class homebridge-pi {
     'homebridge.service':
       path   => '/etc/systemd/system/homebridge.service',
       ensure => 'present',
-      source => ['/etc/puppet/modules/homebridge-pi/files/etc/systemd/system/homebridge.service' , 'puppet:///modules/homebridge-pi/etc/systemd/system/homebridge.service'];
+      source => ['/etc/puppet/modules/homebridgepi/files/etc/systemd/system/homebridge.service' , 'puppet:///modules/homebridgepi/etc/systemd/system/homebridge.service'];
     'homebridge':
       path   => '/etc/default/homebridge',
       ensure => 'present',
-      source => ['/etc/puppet/modules/homebridge-pi/files/etc/default/homebridge', 'puppet:///modules/homebridge-pi/etc/default/homebridge'];
+      source => ['/etc/puppet/modules/homebridgepi/files/etc/default/homebridge', 'puppet:///modules/homebridgepi/etc/default/homebridge'];
   }
 
   service {
     'homebridge':
       enable => true,
       ensure => 'running',
-      require => [File['homebridge','homebridge.service'],Package['nodejs']];
+      require => [Package['homebridge']];
   }
 }

@@ -1,18 +1,16 @@
 {
-  "name": "homebridge-pi",
-  "version": "0.1.0",
+  "name": "dustinrue-homebridgepi",
+  "version": "0.1.3",
   "author": "Dustin Rue",
   "summary": "Homebridge for the RaspberryPI",
   "license": "Apache 2.0",
-  "source": "",
-  "project_page": null,
-  "issues_url": null,
+  "source": "https://github.com/dustinrue/puppet-homebridge-pi",
+  "project_page": "https://github.com/dustinrue/puppet-homebridge-pi",
+  "issues_url": "https://github.com/dustinrue/puppet-homebridge-pi",
   "dependencies": [
-    {
-      "name":"puppetlabs-stdlib","version_requirement":">= 1.0.0",
-      "name":"puppetlabs-apt","version_requirement":">=1.0.0",
-      "name":"puppet-nodejs","version_requirement":">=1.0.0",
-    }
+    { "name":"puppetlabs-stdlib","version_requirement":">= 1.0.0" },
+    { "name":"puppetlabs-apt","version_requirement":">=1.0.0" },
+    { "name":"puppet-nodejs","version_requirement":">=1.0.0" }
   ]
 }
 
