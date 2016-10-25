@@ -5,75 +5,38 @@
 1. [Overview](#overview)
 2. [Module Description](#module-description)
 3. [Setup](#setup)
-    * [What pi affects](#what-pi-affects)
-    * [Setup requirements](#setup-requirements)
-    * [Beginning with pi](#beginning-with-pi)
-4. [Usage](#usage)
-5. [Reference](#reference)
-5. [Limitations](#limitations)
-6. [Development](#development)
+    * [What homebridgepi affects](#what-homebridgepi-affects)
+4. [Limitations](#limitations)
 
 ## Overview
 
-A one-maybe-two sentence summary of what the module does/what problem it solves.
-This is your 30 second elevator pitch for your module. Consider including
-OS/Puppet version it works with.
+Simplify the installation and initial setup of Homebridge on the Raspberry Pi.
 
 ## Module Description
 
-If applicable, this section should have a brief description of the technology
-the module integrates with and what that integration enables. This section
-should answer the questions: "What does this module *do*?" and "Why would I use
-it?"
-
-If your module has a range of functionality (installation, configuration,
-management, etc.) this is the time to mention it.
+This module makes the installation and initial configuration of Homebridge simpler on the Raspberry Pi. It 
+may work on other operating systems but it was tested on a Raspberry Pi running Raspbian Jessie.
 
 ## Setup
 
-### What pi affects
+To utilize this module you should have a Raspberry Pi with Raspbian Jessie or Raspbian Jessie Lite installed 
+and running. From there, simply do the following:
 
-* A list of files, packages, services, or operations that the module will alter,
-  impact, or execute on the system it's installed on.
-* This is a great place to stick any warnings.
-* Can be in list or paragraph form.
+* sudo apt-get update
+* sudo apt-get install puppet
+* sudo puppet module install puppetlabs-apt
+* sudo puppet module install puppet-nodejs
+* sudo puppet module install dustinrue-homebridgepi
 
-### Setup Requirements **OPTIONAL**
+Then create a file called homebridge.pp and place 'include homebridgepi' into it. Apply this configuration
+with 'puppet apply homebridge.pp'. 
 
-If your module requires anything extra before setting up (pluginsync enabled,
-etc.), mention it here.
+### What homebridgepi affects
 
-### Beginning with pi
-
-The very basic steps needed for a user to get the module up and running.
-
-If your most recent release breaks compatibility or requires particular steps
-for upgrading, you may wish to include an additional section here: Upgrading
-(For an example, see http://forge.puppetlabs.com/puppetlabs/firewall).
-
-## Usage
-
-Put the classes, types, and resources for customizing, configuring, and doing
-the fancy stuff with your module here.
-
-## Reference
-
-Here, list the classes, types, providers, facts, etc contained in your module.
-This section should include all of the under-the-hood workings of your module so
-people know what the module is touching on their system but don't need to mess
-with things. (We are working on automating this section!)
+* Installs Nodejs and Homebridge.
+* Configures Homebridge to run as root and start at system boot using systemd.
+* Places a basic config.json file into /root/.homebridge/config.json
 
 ## Limitations
 
-This is where you list OS compatibility, version compatibility, etc.
-
-## Development
-
-Since your module is awesome, other users will want to play with it. Let them
-know what the ground rules for contributing are.
-
-## Release Notes/Contributors/Etc **Optional**
-
-If you aren't using changelog, put your release notes here (though you should
-consider using changelog). You may also add any additional sections you feel are
-necessary or important to include here. Please use the `## ` header.
+This was tested on Raspbian Jessie Lite. It may work on other operating systems and other platforms.
