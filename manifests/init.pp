@@ -56,7 +56,7 @@ class homebridgepi {
     'homebridge':
       ensure  => 'latest',
       provider => 'npm',
-      require => [Package['git', 'libavahi-compat-libdnssd-dev', 'make'],Class['nodejs'],File['homebridge.service','homebridge']];
+      require => [Package['git', 'libavahi-compat-libdnssd-dev', 'make'],Class['nodejs'],File['homebridge.service','homebridge','config.json']];
   }
 
   file {
@@ -68,11 +68,14 @@ class homebridgepi {
       path   => '/etc/default/homebridge',
       ensure => 'present',
       source => ['/etc/puppet/modules/homebridgepi/files/etc/default/homebridge', 'puppet:///modules/homebridgepi/etc/default/homebridge'];
+    '.homebridge':
+      path   => '/root/.homebridge',
+      ensure => 'directory';
     'config.json':
       path => '/root/.homebridge/config.json',
       ensure => 'present',
       source => ['/etc/puppet/modules/homebridgepi/files/root/config.json', 'puppet:///modules/homebridgepi/root/config.json'],
-      require => [Service['homebridge']];
+      require => File['.homebridge'];
   }
 
   service {
