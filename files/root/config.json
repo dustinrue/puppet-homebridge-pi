@@ -9,12 +9,8 @@
     "description": "Here is where you configure any modules you install.",
 
     "accessories": [
-        {
-        }
     ],
 
     "platforms": [
-        {
-        }
     ]
 }
