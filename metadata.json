@@ -1,8 +1,8 @@
 {
   "name": "dustinrue-homebridgepi",
-  "version": "0.1.3",
+  "version": "0.1.4",
   "author": "Dustin Rue",
-  "summary": "Homebridge for the RaspberryPI",
+  "summary": "Homebridge for the Raspberry Pi",
   "license": "Apache 2.0",
   "source": "https://github.com/dustinrue/puppet-homebridge-pi",
   "project_page": "https://github.com/dustinrue/puppet-homebridge-pi",

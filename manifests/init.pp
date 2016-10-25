@@ -68,6 +68,11 @@ class homebridgepi {
       path   => '/etc/default/homebridge',
       ensure => 'present',
       source => ['/etc/puppet/modules/homebridgepi/files/etc/default/homebridge', 'puppet:///modules/homebridgepi/etc/default/homebridge'];
+    'config.json':
+      path => '/root/.homebridge/config.json',
+      ensure => 'present',
+      source => ['/etc/puppet/modules/homebridgepi/files/root/config.json', 'puppet:///modules/homebridgepi/root/config.json'],
+      require => [Service['homebridge']];
   }
 
   service {
